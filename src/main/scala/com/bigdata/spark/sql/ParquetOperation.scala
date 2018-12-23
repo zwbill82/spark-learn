@@ -19,7 +19,9 @@ object ParquetOperation {
     val sc = new SparkContext(conf)
     val sqlContext = new SQLContext(sc)
 
+
     val df = sqlContext.read.format("parquet").load("src/main/resources/users.parquet")
+    df.printSchema()
     df.registerTempTable("users")
     val nameDF = sqlContext.sql("select name from users")
     //普通的方法
