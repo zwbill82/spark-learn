@@ -58,7 +58,7 @@ object WordsUV {
     sortUVRDD.foreach(println)
     sortUVRDD.groupByKey()
       .map(x => {
-        val users = x._2.toList.distinct
+        val users = x._2.toList.distinct //UV值
         (x._1._1, (users.size, x._1._2))
       }).groupByKey().flatMap(r => {
       val top3 = r._2.toList.sortBy(r => r._1).reverse.take(3)
