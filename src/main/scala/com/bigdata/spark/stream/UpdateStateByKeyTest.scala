@@ -29,7 +29,7 @@ object UpdateStateByKeyTest {
     // 实际上，对于每个单词，每次batch计算的时候，都会调用这个函数
     // 第一个参数，values，相当于是这个batch中，这个key的新的值，可能有多个吧
     // 比如说一个hello，可能有2个1，(hello, 1) (hello, 1)，那么传入的是(1,1)
-    // 第二个参数，就是指的是这个key之前的状态，state，其中泛型的类型是你自己指定的
+    // 第二个参数，就是指的是这个key之前的状态，state，其中泛型的类型是你自己指定的，这里state 是指计算的前值
     val wordCount = pairs.updateStateByKey((values: Seq[Int], state: Option[Int]) => {
       var newValue = state.getOrElse(0)
       for (value <- values) {
