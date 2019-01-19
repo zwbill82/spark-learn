@@ -28,6 +28,7 @@ object TransformTest {
         ( line.split(" ")(1),line)
       })
 
+
     /*
     tranform作用：内部可转找成为RDD ，与普通RDD join操作
 
@@ -41,6 +42,7 @@ object TransformTest {
     ssc.start()
 
     ssc.awaitTermination()
+
 
   }
 
